@@ -10,12 +10,21 @@
   </style>
   <script>
 window.onload = function() {
-	var div = document.getElementById("clickme");
-	if (div.addEventListener) {
-		div.addEventListener("click", handleClick, false);
-	} else if (div.attachEvent) {
-		div.attachEvent("click", handleClick);
+	var btn = document.getElementById("clickme");
+	var par = document.getElementById("welcomeDiv");
+	if (btn.addEventListener) {
+		btn.addEventListener("click", handleClick, false);
+	} else if (btn.attachEvent) {
+		btn.attachEvent("click", handleClick);
 	}
+	if (par.addEventListener) {
+		par.addEventListener("click", handleClick, false);
+	} else if (par.attachEvent) {
+		par.attachEvent("click", handleClick);
+	}
+	
+	document.getElementById("clickme").addEventListener('mousemove', handleMouseMove);
+	document.getElementById("welcomeDiv").addEventListener('mousemove', handleMouseMove);
 };
 
 function handleClick(e) {
@@ -29,9 +38,21 @@ function handleClick(e) {
 	alert("You clicked on " + target.id);
 }
 
+function handleMouseMove(e) {
+	var evt = e || window.event;
+	var target;
+	if (evt.target) {
+		target = evt.target;
+	} else {
+		target = evt.srcElement;
+	}
+	alert("You moved over " + target.id);
+}
+
   </script>
 </head>
 <body>
+	<div id="welcomeDiv">Hello There!</div>
 <span id="clickme">Click me!</span>
 </body>
 </html>

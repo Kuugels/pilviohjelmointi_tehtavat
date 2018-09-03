@@ -4,27 +4,50 @@
         <title>Oh my calculator!</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table, th {
+                border: solid black 1px;
+                padding: 2px;
+            }
+        
+            td {
+                padding: 2px;
+            }
+        
+            input[type=button] {
+                width: 100px;
+            }
+            
+            input[type=text] {
+                width: 100%;
+            }
+        </style>
+        <script type="text/javascript" src="js/calc.js"></script>
     </head>
     <body>
         <header>
             <h1>Laskin</h1>
         </header>
-
-        <section>
-            <p>
-                <input type="text" id="firstValue" value="0" />
-                <input type="text" id="secondValue" value="0" />
-            </p>
-
-            <p>
-                <input type="button" value="+" onclick="plus();" />
-                <input type="button" value="*" onclick="mult();" />
-            </p>
-
-
-            <p>Result: <span id="result"></span></p>
-        </section>
-
-        <script src="calc.js"></script>
+        
+        <table>
+                <tr>
+                    <th>Luku 1</th>
+                    <td colspan=3><input type="text" id="firstValue" value="0" /></td>
+                </tr>
+                <tr>
+                    <th>Luku 2</th>
+                    <td colspan=3><input type="text" id="secondValue" value="0" /></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="+" onclick="plus()" /></td>
+                    <td><input type="button" value="-" onclick="minu();" /></td>
+                    <td><input type="button" value="*" onclick="mult();" /></td>
+                    <td><input type="button" value="/" onclick="divi();" /></td>
+                </tr>
+                <tr>
+                    <th colspan=4 id="result">Result: 0</th>
+                </tr>
+            </table>
+        
     </body>
 </html>
