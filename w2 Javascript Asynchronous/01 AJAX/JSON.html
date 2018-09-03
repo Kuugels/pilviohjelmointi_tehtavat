@@ -9,6 +9,16 @@ var fidoString = '{ "name": "Fido", "breed": "Mixed", "weight": 38 }';
 var fido = JSON.parse(fidoString);
 console.log("We have made a dog out of a string! " + fido.name);
 
+var employee = {
+    name: {first: "Erkki",
+            second: "Perkki"},
+    title: "Senior Java Developer"
+};
+
+var emplStr = JSON.stringify(employee);
+var em = JSON.parse(emplStr);
+var empName = em.name;
+var emplStr1 = JSON.stringify(empName);
 
 var fido2 = {
 	name: "Fido",
@@ -17,9 +27,15 @@ var fido2 = {
 };
 var fidoString = JSON.stringify(fido2);
 console.log("We made a string from a dog! " + fidoString);
+window.onload = function() {
+    document.getElementById("empl").innerHTML = emplStr;
+    document.getElementById("empl1").innerHTML = emplStr1;
+};
 
   </script>
 </head>
 <body>
+    <div id="empl">dsa</div>
+    <div id="empl1">asd</div>
 </body>
 </html>

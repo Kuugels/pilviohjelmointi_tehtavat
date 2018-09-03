@@ -43,6 +43,8 @@ manager.gui = (function () {
     function buttonPressed() {
         var name = document.getElementById('name').value;
         var address = document.getElementById('address').value;
+        var person = new Person(name, address);
+        manager.data.add(person);
         // toteuta tänne toiminnallisuus, jossa haet dokumentissa olevasta
         // lomakkeesta nimen ja osoitteen, luot niistä uuden henkilön, 
         // ja lopulta kutsut manager.data.add -funktiota, jolle annat parametrina
