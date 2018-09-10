@@ -20,10 +20,22 @@ do {
 		let space = input.indexOf(' ')
     /* the substring() function returns the string after the specified position. This will include the space character and so the result is trimmed of any whitespace. */
 		let item = input.substring(space+1).trim()
-    /* console.log() prints to the terminal. */
+		item = item.toLowerCase();
+		if (!items.includes(item)) {
+		     /* console.log() prints to the terminal. */
 		console.log('adding "'+item+'"')
     /* All arrays have a built-in push() function which appends an item to their end. */
-		items.push(item)
+		items.unshift(item)
+		}else {
+		    console.log('"' + item + '" already added to list!');
+		}
+	}
+	if (input.indexOf('remove') === 0) {
+	    let space = input.indexOf(' ')
+    /* the substring() function returns the string after the specified position. This will include the space character and so the result is trimmed of any whitespace. */
+		let item = input.substring(space+1).trim()
+	    items.splice(items.indexOf(item));
+	    console.log('removed "' + item + '"')
 	}
 	if (input.indexOf('list') === 0) {
     /* Here we use a for...next loop to interate through all the array indexes. The let keyword defines a variable with _block_ scope (more on this later). */

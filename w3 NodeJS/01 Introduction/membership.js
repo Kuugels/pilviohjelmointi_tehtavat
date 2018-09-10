@@ -1,33 +1,34 @@
 
-"use strict"
+"use strict";
 
-const readline = require('readline-sync')
+const readline = require('readline-sync');
 
-const type = String(readline.question('membership type (basic, premium, gold): ')).trim()
-const years = Number(readline.question('years required: '))
+const type = String(readline.question('membership type (basic, premium, gold): ')).trim();
+const years = Number(readline.question('years required: '));
+let cost;
 
 try {
 	if (Number.isNaN(years) || years < 1) {
-	throw 'invalid number of years requested'
+	throw 'invalid number of years requested';
 	}
 	switch (type) {
 		case 'basic':
-			cost = 10.00
-			break
+			cost = 10.00;
+			break;
 		case 'premium':
-			cost = 15.00
-			break
+			cost = 15.00;
+			break;
 		case 'gold':
-			cost = 20.00
-			break
+			cost = 20.00;
+			break;
 		default:
-			throw 'invalid membership type'
+			throw 'invalid membership type';
 	}
-	cost *= years
+	cost *= years;
 	if (years > 1) {
-		cost *= 0.8
+		cost *= 0.8;
 	}
-	console.log("membership cost is £"+cost)
+	console.log("membership cost is £"+cost);
 } catch(err) {
-console.log(err)
+console.log(err);
 }
