@@ -42,7 +42,7 @@ The loading of the text and its presentation in the DOM happens “chapter by ch
 - Refresh the page
   - Note that the newly added text appears immediately! The AJAX calls are left to execute in the background.
   
-### TODO 1 Understanding how promises work
+## Understanding how promises work
 
 Promises essentially define actions to perform once other actions complete, whether successfully or not.
 - Read through the JS code in `ajax_async.html`
@@ -59,7 +59,7 @@ definition of `get()` and you will see that it does indeed:
   - *construct* a new `Promise()` object
   - returns a promise (actually one composed of two actions)
   
-### TODO 2 Test your Understanding
+### TODO 1 Test your Understanding
 
 - Add an additional `then()` call at an appropriate place in `ajax_async.html` (you will need to be careful with nesting) which pops up a confirmation dialog after each new chapter is displayed.
 - The confirmation should ask whether the user wishes to continue downloading the next chapter
@@ -114,7 +114,7 @@ There is one stupendously powerful block of code that lets this happen:
   
 Basically an array of promises (each of which gets some JSON for a particular chapter) must complete before the next `then()` or `catch()` block in the chain will be executed. When the array completes, an array of the separate results is passed to the next block in the same order. So further blocks can process the chapters data returned by the various getJson()’s.
 
-### TODO 3 Test your understanding
+### TODO 2 Test your understanding
 
 You will have done well to understand this code by the end of the lab!
 
@@ -179,7 +179,7 @@ Now, the special thing about this chain is that the prior call to story.chapterU
 
 Complicated, but powerful.
 
-### TODO 4 Test Your Understanding
+### TODO 3 Test Your Understanding
 
 Try to define a map-reduce chain of promises corresponding to button click events.
 

@@ -48,7 +48,7 @@ Start thinking of making a REST API by yourself. You should use only ExpressJS i
 
 ### TODO 2 Test your understanding
 
-1. Take a look at [HeiaHeia's API] (http://developers.heiaheia.com/index.html#!/). It is definately too large for a little API exercise, but think what kind of resources you would have in a similar type of application.
+1. Take a look at [HeiaHeia's API] (https://hh-api-docs.herokuapp.com/index.html). It is definately too large for a little API exercise, but think what kind of resources you would have in a similar type of application.
 2. List the HTTP methods you will have in your API. At least getting a list of items, filtering a list of items by some criteria, inserting an item, deleting an item.
 3. Write the express app.js (you can fine-tune routing next week).
 4. Test your API with Postman.

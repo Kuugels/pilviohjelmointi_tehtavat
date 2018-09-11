@@ -44,7 +44,7 @@ The DOM is essentially a description of the elements on a web page along with th
 
 Do these after a quick scan of the [MDN DOM introduction](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
 
-- Use the createButton method of the document object to add a new list `<ul>` to the DOM
+- Use the createElement method of the document object to add a new list `<ul>` to the DOM
 - Populate this list using a JS *for loop* (name your buttons as B1, B2, ..)  
 - Test also how you could use `appendChild()`and `innerHTML` assignmentto your page.
 

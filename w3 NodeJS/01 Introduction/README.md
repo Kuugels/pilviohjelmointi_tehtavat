@@ -21,7 +21,7 @@ exit
 
 ### 1.1 Variables and Constants
 
-There are three ways to declare a variable in the latest version of JavaScript (ECMA6).
+There are three ways to declare a variable in the latest version of JavaScript (ECMA6). Node already supports many ECMA6 features, there is a full [list](https://nodejs.org/en/docs/es6/) available so you know what is supported.
 
 1. Standard variables are _function scoped_ which means they are available anywhere within the function in which they are declared. These are declared with the `var` keyword.
 2. Immutable variables (constants) are also function scoped. These are declared using the `const` keyword.
