@@ -24,14 +24,25 @@ function capitalise(string) {
     })
 }
 
+function capitaliseLastLetter(string) {
+  return new Promise((resolve, reject) => {
+    let reversed = string.split('').reverse().join('')
+    reversed = reversed.charAt(0).toUpperCase()
+    reversed = string.split('').reverse().join('')
+    resolve(reversed)
+  })
+}
+
 /* this promise chain uses the 'traditional' syntax to declare anonymous functions. Notice that the is quite verbose. */
 function promise1(data) {
-  reverse(data).then(function(data) {
+  reverse(data).then((data) => {
     /* capitalise() returns a new promise. */
     return capitalise(data)
-  }).then(function(data) {
+  }).then(data => {
+    return capitaliseLastLetter(data)
+  }).then((data) => {
     console.log(data)
-  }).catch(function(err) {
+  }).catch((err) => {
     console.log('an error occurred: '+err)
   })
 }
@@ -40,6 +51,8 @@ function promise1(data) {
 function promise2(data) {
   reverse(data).then(data => {
     return capitalise(data)
+  }).then(data => {
+    return capitaliseLastLetter(data)
   }).then(data => {
     console.log(data)
   }).catch((err) => {
@@ -50,7 +63,9 @@ function promise2(data) {
 /* In this third version we take advantage of the fact that when resolving a promise the return value is implicit so we don't need to include it. */
 function promise3(data) {
   reverse(data)
-    .then( data => capitalise(data)  )
+    .then( data => capitalise(data)  ).then(data => {
+    return capitaliseLastLetter(data)
+  })
     .then( data => console.log(data) )
     .catch( (e) => console.log('an error occurred: '+e) )
 }
@@ -58,7 +73,9 @@ function promise3(data) {
 /* In this fourth version we eliminate the parameter to the second function. This only works if the second function takes a single parameter and its value is the returned object from the previous function. */
 function promise4(data) {
   reverse(data)
-    .then(capitalise)
+    .then(capitalise).then(data => {
+    return capitaliseLastLetter(data)
+  })
     .then( data => console.log(data) )
     .catch(  (e) => console.log('an error occurred: '+e) )
 }
