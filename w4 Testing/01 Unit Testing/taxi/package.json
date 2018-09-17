@@ -15,7 +15,8 @@
   "author": "Mark J Tyers",
   "license": "ISC",
   "dependencies": {
-    "sync-request": "^2.1.0"
+    "rewire": "^2.5.2",
+    "sync-request": "^2.2.0"
   },
   "devDependencies": {
     "jasmine-node": "^1.14.5",

@@ -48,7 +48,7 @@ exports.getInfo = (query, callback) => {
       return
     }
     const books = items.map( element => {
-      return {id:element.id, title:element.volumeInfo.title, authors:element.volumeInfo.authors}
+      return {id:element.id, description: element.description}
     })
     /* the first callback parameter is the error, which in this case will be null, the second parameter is the data returned. */
     callback(null, books)

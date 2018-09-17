@@ -20,6 +20,7 @@ describe('Shopping List', function () {
 
 	it('should add a new item', () => {
 		list.add('cheese')
+		console.log('test');
 		expect(list.count()).toBe(3)
 	})
 
@@ -71,6 +72,42 @@ describe('Shopping List', function () {
 			expect(true).toBe(false)
 		} catch(err) {
 			expect(err.message).toBe('item not in list')
+		}
+	})
+	
+	it('should decrement multiple items', () => {
+		list.decrement('bread', 2)
+		/*spyOn(list, 'set')
+		expect(list.set).toHaveBeenCalledWith('bread', 0)*/
+		try {
+			list.getItem('bread')
+		}catch(err) {
+			expect(err.message).toBe('item not in list')
+		}
+		
+	})
+	
+	it('should throw error if unknown item', () => {
+		try {
+			list.decrement('sipuli', 1)
+		}catch(err) {
+			expect(err.message).toBe('item not in list')
+		}
+	})
+	
+	it('should throw error if second parameter is not number', () => {
+		try {
+			list.decrement('bread', 'one')
+		}catch(err) {
+			expect(err.message).toBe('second parameter should be a number')
+		}
+	})
+	
+	it('should throw error if no parameters are given', () => {
+		try {
+			list.decrement()
+		}catch(err) {
+			expect(err.message).toBe('function requires two parameters')
 		}
 	})
 
