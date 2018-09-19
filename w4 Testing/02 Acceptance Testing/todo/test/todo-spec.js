@@ -8,9 +8,13 @@ frisby.globalSetup({
   }
 })
 
+frisby.create('clear the list')
+  .delete('https://pilviohjelmointi-samkako.c9users.io/lists')
+  .toss()
+
 /* here is a simple automated API call making a GET request. We check the response code, one of the response headers and the content of the response body. After completing the test we call 'toss()' which moves the script to the next test. */
 frisby.create('get empty list')
-  .get('http://localhost:8080/lists')
+  .get('https://pilviohjelmointi-samkako.c9users.io/lists')
   .expectStatus(404)
   .expectHeaderContains('Content-Type', 'application/json')
   .expectJSON({status: 'error', message: 'no lists found'})
@@ -18,7 +22,7 @@ frisby.create('get empty list')
 
 /* in this second POST example we don't know precisely what values will be returned but we can check for the correct data types. Notice that the request body is passed as the second parameter and we need to pass a third parameter to indicate we are passing the data in json format. */
 frisby.create('add a new list')
-  .post('http://localhost:8080/lists', {"name": "shopping", "list": ["Cheese", "Bread", "Butter"]}, {json: true})
+  .post('https://pilviohjelmointi-samkako.c9users.io/lists', {"name": "shopping", "list": ["Cheese", "Bread", "Butter"]}, {json: true})
   .expectStatus(201)
   .expectJSONTypes({
     "status": String,
@@ -32,7 +36,7 @@ frisby.create('add a new list')
 
 /* Since Frisby is built on the Jasmine library we can use any of the standard matchers by enclosing them in an anonymous function passed to the 'afterJSON()' method. */
 frisby.create('check number of lists')
-  .get('http://localhost:8080/lists')
+  .get('https://pilviohjelmointi-samkako.c9users.io/lists')
   .expectStatus(200)
   .afterJSON( json => {
     // you can retrieve args using json.args.x

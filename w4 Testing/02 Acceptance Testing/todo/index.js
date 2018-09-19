@@ -76,6 +76,10 @@ server.del('/lists/:listID', function(req, res) {
 	res.end()
 })
 
+server.del('/lists', function(req, res) {
+	console.log("clearing list")
+})
+
 const port = process.env.PORT || 8080
 server.listen(port, function(err) {
 	if (err) {
