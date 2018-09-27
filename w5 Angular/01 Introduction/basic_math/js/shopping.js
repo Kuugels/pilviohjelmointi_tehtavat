@@ -8,6 +8,7 @@ app.controller('shopController', function($scope) {
   $scope.price = 1.00
   $scope.tax = 0.0
   $scope.discount = 0.0
+  $scope.shipping = 3
   /* Functions can be stored in these properties as well. These one is referenced in the ng-change attributes */
   $scope.getTotal = function() {
     console.log('getTotal()')
@@ -18,8 +19,15 @@ app.controller('shopController', function($scope) {
 	  tax = tax + 1
     total = total * tax;
 	  console.log("total after tax: " + total)
-    total = total - $scope.discount
+	  if ($scope.quantity > 100) {
+	    total = total - ($scope.discount * 2)
+	  }else {
+	    total = total - $scope.discount
+	  }
 	  console.log("total after discount: " + total)
+	  
+	  total = total + $scope.shipping
+	  console.log("total after shipping: " + total)
     /* Finally we can pass a value back to the view by setting its property. */
     $scope.total = total.toFixed(2)
     console.log(" ")

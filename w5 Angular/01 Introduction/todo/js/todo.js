@@ -14,13 +14,19 @@ app.controller('todoController', function($scope) {
       console.log('enter key pressed')
       var newItem = $scope.newItem
       console.log(newItem)
-      items.push(newItem)
+      if (!items.includes($scope.newItem)) {
+        items.push(newItem)
+      }else {
+        console.log('item already in list')
+      }
       console.log(items)
       $scope.newItem = ''
       $scope.items = items
     }
   }
+  
   $scope.delete = function(item) {
+    items.splice(items.indexOf(item), 1)
     console.log('delete()')
   }
 })

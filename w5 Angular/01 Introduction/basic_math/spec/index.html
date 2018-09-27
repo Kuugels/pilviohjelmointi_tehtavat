@@ -56,6 +56,17 @@
           $scope.getTotal()
           expect($scope.total).toBe('152.50')
         })
+        it('adding shipping costs should succeed', function() {
+            var $scope = {}
+          var controller = $controller('shopController', { $scope: $scope })
+          $scope.quantity = 10
+          $scope.price = 15
+          $scope.tax = 15
+          $scope.discount = 0.0
+          $scope.shipping = 3
+          $scope.getTotal()
+          expect($scope.total).toBe('175.50')
+        })
         /* this spec is set to pending. To make it active remove the leading 'x' character and refresh the browser. */
         xit('2000 items costing 15 with 15% tax and 200 discount should cost 3050.00', function () {
           var $scope = {}
