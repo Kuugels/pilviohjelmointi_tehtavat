@@ -12,23 +12,24 @@
 		<h1>Turnitin</h1>
 		<form  lang="fi" action="">
 			<div>
-				Name: <input type="text" name="studentname"/>
+				Name: <input type="text" name="studentname" ng-model="name"/>
 			</div>
 			<div>
-				Student id: <input type="text" name="id"  />
+				Student id: <input type="text" name="id" ng-model="id" />
 			</div>
 			<div>
 				Email:
 				<!--
 				Make an input named "email"
 				-->
+				<input type="email" name="email" ng-model="email" />
 			</div>
 			<div>
 				Assignment:
 				<!--
 				Make an input named "assignment"
 				-->
-				
+				<input type="text" name="assignment" ng-model="assignment" />
 			</div>
 
 			<div>
@@ -36,25 +37,33 @@
 				<!--
 				Make an input named "code" which is a text area to put student's code into.
 				-->
-				
+				<textarea name="code"ng-model="code"></textarea>
 			</div>
 			<div>
 				Cheat:
 			<!--
 				Make an input named "cheat" which is a check box the student must check.
 			-->
+			<input type="checkbox" name="cheat"  ng-model="cheat"/>
 			</div>
 			<div>
 				Pay:
 			<!--
 				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
 			-->
+			<input type="radio" id="visa" name="visa" ng-model="payment" />
+			<label for="visa">Visa</label>
+			<input type="radio" id="paypal" name="paypal" ng-model="payment" />
+			<label for="paypal">Paypal</label>
+			<input type="radio" id="mastercard" name="mastercard" ng-model="payment"/>
+			<label for="mastercard">Mastercard</label>
 			</div>
 			<div>
 				Score:
 			<!--
 				Make an input named "score" which is a list of choices for the score 
 			-->
+			<input type="text" name="score" ng-model="score" />
 			</div>
 			<input type="submit" />
 		</form>
