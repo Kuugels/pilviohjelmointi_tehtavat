@@ -1,0 +1,6 @@
+Demossa on käytetty compression, connect-busboy, vhost ja morgan nimisiä middlewareja
+
+compression pienentää requestien kokoa
+connect-busboy on busboylle tehty middleware
+vhost katsoo onko requestin tekijä joku tietty hosti
+morgan on request logger

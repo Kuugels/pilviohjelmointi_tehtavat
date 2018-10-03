@@ -1,0 +1,21 @@
+
+rakenne:
+
+{
+    messages: [{
+        title: String,
+        message: String
+    }],
+    siteVisits: Number
+}
+
+API kutsut:
+
+GET /messages - palauttaa kaikki viestit
+GET /messages/:id - palauttaa viestin tietyllä id:llä
+GET /data - palauttaa vierailukertojen määrän ja viestien kokonaismäärän
+
+POST /message - lisää uuden viestin tietokantaan
+
+PUT /visit - lisää vierailukertoihin yhden
+PUT /messages/:id - muokkaa viestiä
