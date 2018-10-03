@@ -2,6 +2,7 @@
 
 /* we 'inject' the ngRoute module into our app. This makes the routing functionality to be available to our app. */
 var myApp = angular.module('myApp', ['ngRoute'])
+var items = []
 
 /* the config function takes an array. */
 myApp.config( ['$routeProvider', function($routeProvider) {
@@ -23,7 +24,6 @@ myApp.config( ['$routeProvider', function($routeProvider) {
 		})
 	}])
 
-
 myApp.controller('searchController', function($scope, $http) {
   $scope.message = 'This is the search screen'
   $scope.search = function($event) {
@@ -35,6 +35,7 @@ myApp.controller('searchController', function($scope, $http) {
       $http.get(url).success(function(response) {
         console.log(response)
         $scope.books = response.items
+        items = response.items
         $scope.searchTerm = ''
       })
     }
@@ -44,26 +45,28 @@ myApp.controller('searchController', function($scope, $http) {
 myApp.controller('detailController', function($scope, $routeParams) {
   $scope.message = 'This is the detail screen'
   $scope.id = $routeParams.id
-  $scope.addToFavourites = function(id) {
+  $scope.title = $routeParams.title
+  console.log("[detailController]", $routeParams)
+  $scope.addToFavourites = function(id ,title) {
     console.log('adding: '+id+' to favourites.')
-    localStorage.setItem(id, id)
+    localStorage.setItem('id', id)
+    localStorage.setItem('title', title)
   }
 })
  
 myApp.controller('favouritesController', function($scope) {
   console.log('fav controller')
   $scope.message = 'This is the favourites screen'
-  $scope.delete = function(id) {
-    console.log('deleting id '+id)
+  $scope.delete = function(book) {
+    console.log('deleting id '+book.id)
   }
   var init = function() {
     console.log('getting books')
     var items = Array()
+    console.log(localStorage)
     for (var a in localStorage) {
       items.push(localStorage[a])
     }
-    console.log(items)
-    $scope.books = items
   }
   init()
 })
